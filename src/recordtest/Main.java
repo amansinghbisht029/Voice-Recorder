@@ -1,3 +1,7 @@
+/*
+            Author: AMAN SINGH BISHT, NIT SRINAGAR (ECE DEPARTMENT)
+ */
+
 package recordtest;
 
 import java.io.File;
@@ -33,20 +37,19 @@ public class Main {
                     File outputFile = new File("record.wav");
                     try {
                         AudioSystem.write(recordingStream, AudioFileFormat.Type.WAVE, outputFile);
-
                     } catch (IOException ex) {
-                        System.out.println("Supported recording");
+                        System.out.println(ex);
                     }
+                    System.out.println("Supported recording");
                 }
 
-                ;
-                audioRecorderThread.star();
-                JOptionPane.showMessageDialog(null,"Hit ok to stop recoding");
-                targetLine.stop();
-                targetLine.close();
-            }catch(Exception e){
-                System.out.println(e);
-            }
+            };
+            audioRecorderThread.start();
+            JOptionPane.showMessageDialog(null, "Hit ok to stop recoding");
+            targetLine.stop();
+            targetLine.close();
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 }
